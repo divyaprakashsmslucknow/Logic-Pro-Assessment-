@@ -1,1 +1,22 @@
+#16
+def has_constant_diff(arr):
+    if len(arr) < 2:
+        return True
+    diff = arr[1] - arr[0]
+    for i in range(2, len(arr)):
+        if arr[i] - arr[i-1] != diff:
+            return False
+    return True
 
+print(has_constant_diff([2,4,6,8,10,12])) # True, diff = 2
+
+#20
+arr = [3,1,4,2,5,1,6]
+k = 3
+window_sum = sum(arr[:k]) # 8
+max_sum = window_sum
+for i in range(k, len(arr)):
+    window_sum = window_sum - arr[i-k] + arr[i]
+    max_sum = max(max_sum, window_sum)
+print(max_sum) # 12 -> [5,1,6]
+# Time Complexity: O(n)
