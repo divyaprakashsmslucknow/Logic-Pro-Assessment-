@@ -10,6 +10,22 @@ def has_constant_diff(arr):
 
 print(has_constant_diff([2,4,6,8,10,12])) # True, diff = 2
 
+#18
+arr = [1,2,4,6,8,9]
+target = 10
+left, right = 0, len(arr)-1
+while left < right:
+    s = arr[left] + arr[right]
+    if s == target:
+        print(arr[left], arr[right]) # 1,9 ya 2,8 ya 4,6
+        break
+    elif s < target:
+        left += 1
+    else:
+        right -= 1
+# Time: O(n), Space: O(1)
+# Unsorted ke liye: set me check karo, agar (target - x) set me hai to pair mil gaya. O(n) time.
+
 #20
 arr = [3,1,4,2,5,1,6]
 k = 3
